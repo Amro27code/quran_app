@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/controller/splash_controller.dart';
 import 'package:quran_app/core/image_path_manager.dart';
 import 'package:quran_app/core/numbers/height.dart';
+import 'package:quran_app/core/numbers/time_manager.dart' show SecondValues;
 import 'package:quran_app/core/numbers/width.dart';
 import 'package:quran_app/feature/widgets/custom_splash_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    SplashController.timer(
+      context: context,
+      time: SecondValues.timeSplashScreen,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
