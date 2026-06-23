@@ -1,3 +1,4 @@
 class ImagePathManager {
-  static const String musicIcon = "assets/images/music-notes.png";
+  static const String _rootPath = "assets/images";
+  static const String musicIcon = "${_rootPath}/music-notes.png";
 }
