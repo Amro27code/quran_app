@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/core/font_manager.dart';
 import 'package:quran_app/core/route_manager.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
       title: "quran app",
       initialRoute: RouteNames.splashScreen,
       routes: RouteManager.routes,
-
+      // darkTheme: ThemeData.dark(useMaterial3: true),
+      theme: ThemeData(fontFamily: FontManager.orbitronName),
     );
   }
 }

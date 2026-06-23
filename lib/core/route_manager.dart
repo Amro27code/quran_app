@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/feature/home/screen/home_screen.dart';
 import 'package:quran_app/feature/onBoardingScreen/screens/onb_screen.dart';
-import 'package:quran_app/feature/splashScreen/splash_screen.dart';
+import 'package:quran_app/feature/splashScreen/screens/splash_screen.dart';
 
 class RouteManager {
   static Map<String, WidgetBuilder> routes = {
