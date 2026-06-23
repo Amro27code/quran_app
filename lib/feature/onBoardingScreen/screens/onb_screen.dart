@@ -4,6 +4,7 @@ import 'package:quran_app/core/image_path_manager.dart';
 import 'package:quran_app/core/numbers/alignmet_manager.dart';
 import 'package:quran_app/core/numbers/font_size.dart';
 import 'package:quran_app/core/text_manager.dart';
+import 'package:quran_app/feature/onBoardingScreen/widgets/custom_button.dart';
 import 'package:quran_app/feature/onBoardingScreen/widgets/custom_title.dart';
 
 class OnbScreen extends StatelessWidget {
@@ -13,6 +14,8 @@ class OnbScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: .infinity,
+        height: .infinity,
         alignment: .center,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -32,8 +35,6 @@ class OnbScreen extends StatelessWidget {
             ],
           ),
         ),
-        width: .infinity,
-        height: .infinity,
         child: SizedBox(
           width: .infinity,
           child: Column(
@@ -52,30 +53,7 @@ class OnbScreen extends StatelessWidget {
                 weight: .w500,
               ),
               const SizedBox(height: 58),
-              GestureDetector(
-                onTap: () => Navigator.pushReplacementNamed(context, "home"),
-                child: Container(
-                  width: 171,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: .topCenter,
-                      end: .bottomCenter,
-                      colors: [ColorManager.buttonOnb1, ColorManager.buttonOnb2],
-                    ),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  alignment: .center,
-                  child: Text(
-                    TextManager.onbButton,
-                    style: TextStyle(
-                      fontWeight: .w500,
-                      fontSize: FontSizeValues.buttonOnb,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
+              customButtonOnb(context:context),
               Spacer(),
               Align(
                 alignment: .bottomRight,

@@ -7,6 +7,6 @@ class ColorManager {
   static const Color onbSecondary1 = Color(0xff3097C5);
   static const Color onbSecondary2 = Color(0xffB1AFE9);
   static const Color titleOnb = Color(0xff80CFF2);
-  static const Color buttonOnb1 = Color(0x332F5D9A);
+  static const Color  buttonOnb1 = Color(0x332F5D9A);
   static const Color buttonOnb2 = Color(0xff80CFF2);
 }
