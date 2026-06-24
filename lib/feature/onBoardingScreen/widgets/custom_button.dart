@@ -3,9 +3,9 @@ import 'package:quran_app/core/color_manager.dart';
 import 'package:quran_app/core/numbers/font_size.dart';
 import 'package:quran_app/core/text_manager.dart';
 
-GestureDetector customButtonOnb({required BuildContext context}){
+GestureDetector customButtonOnb({required BuildContext context,required VoidCallback onPressed,String text=TextManager.onbButton }){
   return GestureDetector(
-    onTap: () => Navigator.pushReplacementNamed(context, "home"),
+    onTap:onPressed,
     child: Container(
       width: 171,
       height: 60,
@@ -25,7 +25,7 @@ GestureDetector customButtonOnb({required BuildContext context}){
       ),
       alignment: .center,
       child: Text(
-        TextManager.onbButton,
+        text,
         style: TextStyle(
           fontWeight: .w500,
           fontSize: FontSizeValues.buttonOnb,

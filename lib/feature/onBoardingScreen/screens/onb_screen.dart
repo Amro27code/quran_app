@@ -5,6 +5,7 @@ import 'package:quran_app/core/numbers/alignmet_manager.dart';
 import 'package:quran_app/core/numbers/font_size.dart';
 import 'package:quran_app/core/text_manager.dart';
 import 'package:quran_app/feature/onBoardingScreen/widgets/custom_button.dart';
+import 'package:quran_app/feature/onBoardingScreen/widgets/custom_image.dart';
 import 'package:quran_app/feature/onBoardingScreen/widgets/custom_title.dart';
 
 class OnbScreen extends StatelessWidget {
@@ -12,6 +13,7 @@ class OnbScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print(MediaQuery.of(context).size.width);
     return Scaffold(
       body: Container(
         width: .infinity,
@@ -39,7 +41,7 @@ class OnbScreen extends StatelessWidget {
           width: .infinity,
           child: Column(
             children: [
-              const SizedBox(height: 111),
+              const SizedBox(height: 100),
               customTitle(title: TextManager.titleOnb1),
               customTitle(
                 title: TextManager.titleOnb2,
@@ -52,16 +54,15 @@ class OnbScreen extends StatelessWidget {
                 size: FontSizeValues.subtitleOnb,
                 weight: .w500,
               ),
-              const SizedBox(height: 58),
-              customButtonOnb(context:context),
-              Spacer(),
-              Align(
-                alignment: .bottomRight,
-                child: Image(
-                  image: AssetImage(ImagePathManager.onBoardingImage),
-                  width: 250,
-                  height: 250,
-                ),
+              const SizedBox(height: 38),
+              customButtonOnb(
+                context: context,
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, "home"),
+              ),
+              customImage(
+                imagePath: ImagePathManager.onBoardingImage,
+                context: context,
               ),
             ],
           ),
