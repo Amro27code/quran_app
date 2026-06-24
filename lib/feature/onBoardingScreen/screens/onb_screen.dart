@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/controller/onb_controller.dart';
 import 'package:quran_app/core/color_manager.dart';
 import 'package:quran_app/core/image_path_manager.dart';
 import 'package:quran_app/core/numbers/alignmet_manager.dart';
@@ -57,8 +58,9 @@ class OnbScreen extends StatelessWidget {
               const SizedBox(height: 38),
               customButtonOnb(
                 context: context,
-                onPressed: () =>
-                    Navigator.pushReplacementNamed(context, "home"),
+                onPressed: () {
+                  OnbController.navigatorToNextScreen(context: context);
+                },
               ),
               customImage(
                 imagePath: ImagePathManager.onBoardingImage,
