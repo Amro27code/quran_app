@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/app/widgets.dart';
 import 'package:quran_app/controller/onb_controller.dart';
 import 'package:quran_app/core/color_manager.dart';
 import 'package:quran_app/core/image_path_manager.dart';
@@ -14,29 +15,21 @@ class OnbScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print(MediaQuery.of(context).size.width);
     return Scaffold(
-      body: Container(
-        width: .infinity,
-        height: .infinity,
-        alignment: .center,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment(
-              AlignmentXManager.beginBackgroundSplash,
-              AlignmentYManager.beginBackgroundSplash,
-            ),
-            end: Alignment(
-              AlignmentXManager.endBackgroundSplash,
-              AlignmentYManager.endBackgroundSplash,
-            ),
-            colors: [
-              ColorManager.primary,
-              ColorManager.primary,
-              ColorManager.onbSecondary1,
-              ColorManager.onbSecondary2,
-            ],
-          ),
+      body: backgroundGradiant(
+        colors: [
+          ColorManager.primary,
+          ColorManager.primary,
+          ColorManager.onbSecondary1,
+          ColorManager.onbSecondary2,
+        ],
+        beginAlignment: Alignment(
+          AlignmentXManager.beginBackgroundSplash,
+          AlignmentYManager.beginBackgroundSplash,
+        ),
+        endAlignment: Alignment(
+          AlignmentXManager.endBackgroundSplash,
+          AlignmentYManager.endBackgroundSplash,
         ),
         child: SizedBox(
           width: .infinity,

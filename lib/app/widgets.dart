@@ -9,8 +9,8 @@ Container backgroundGradiant({
     AlignmentYManager.beginBackgroundSplash,
   ),
   AlignmentGeometry endAlignment = const Alignment(
-    AlignmentXManager.beginBackgroundSplash,
-    AlignmentYManager.beginBackgroundSplash,
+    AlignmentXManager.endBackgroundSplash,
+    AlignmentYManager.endBackgroundSplash,
   ),
 }) {
   return Container(
@@ -20,7 +20,7 @@ Container backgroundGradiant({
     decoration: BoxDecoration(
       gradient: LinearGradient(
         begin: beginAlignment,
-        end:endAlignment,
+        end: endAlignment,
         colors: colors,
       ),
     ),

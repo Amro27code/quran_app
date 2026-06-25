@@ -12,7 +12,6 @@ class Bnb extends StatefulWidget {
 
 class _HomeScreenState extends State<Bnb> {
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +19,6 @@ class _HomeScreenState extends State<Bnb> {
         child: BnbController.screens[BnbController.index],
         colors: [
           ColorManager.primary,
-          ColorManager.primary,
-          ColorManager.backgroundSecondaryHome,
           ColorManager.backgroundSecondaryHome,
         ],
       ),
