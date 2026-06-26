@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/color_manager.dart';
+import 'package:quran_app/core/other/color_manager.dart';
 
 Padding titleForEachField({required String text}) {
   return Padding(

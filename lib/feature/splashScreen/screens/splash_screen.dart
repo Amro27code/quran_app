@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/controller/splash_controller.dart';
-import 'package:quran_app/core/image_path_manager.dart';
 import 'package:quran_app/core/numbers/height.dart';
 import 'package:quran_app/core/numbers/time_manager.dart' show SecondValues;
 import 'package:quran_app/core/numbers/width.dart';
+import 'package:quran_app/core/other/image_path_manager.dart';
 import 'package:quran_app/feature/splashScreen/widgets/custom_splash_screen.dart';
 
 class SplashScreen extends StatefulWidget {

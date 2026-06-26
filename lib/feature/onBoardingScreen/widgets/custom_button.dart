@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/color_manager.dart';
 import 'package:quran_app/core/numbers/font_size.dart';
-import 'package:quran_app/core/text_manager.dart';
+import 'package:quran_app/core/other/color_manager.dart';
+import 'package:quran_app/core/other/text_manager.dart';
 
-GestureDetector customButtonOnb({required BuildContext context,required VoidCallback onPressed,String text=TextManager.onbButton }){
+GestureDetector customButtonOnb({
+  required BuildContext context,
+  required VoidCallback onPressed,
+  String text = TextManager.onbButton,
+}) {
   return GestureDetector(
-    onTap:onPressed,
+    onTap: onPressed,
     child: Container(
       width: 171,
       height: 60,
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(color: ColorManager.whiteColor,width: 2),
+          top: BorderSide(color: ColorManager.whiteColor, width: 2),
         ),
         gradient: LinearGradient(
           begin: .topCenter,
           end: .bottomCenter,
-          colors: [
-            ColorManager.buttonOnb1,
-            ColorManager.buttonOnb2,
-          ],
+          colors: [ColorManager.buttonOnb1, ColorManager.buttonOnb2],
         ),
         borderRadius: BorderRadius.circular(50),
       ),

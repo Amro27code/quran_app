@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/color_manager.dart';
+import 'package:quran_app/core/other/color_manager.dart';
 
 Expanded customImage({required String imagePath,required BuildContext context}){
   return Expanded(

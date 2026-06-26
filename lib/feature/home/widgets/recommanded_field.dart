@@ -3,7 +3,7 @@ import 'package:quran_app/feature/home/widgets/recommanded_custom.dart';
 import 'package:quran_app/feature/home/widgets/title_for_field_widget.dart';
 import 'package:quran_app/model/constant/recently_played_list.dart';
 
-Column recommandedField() {
+Column recommandedField({required BuildContext context}) {
   return Column(
     crossAxisAlignment: .start,
     children: [
@@ -14,8 +14,10 @@ Column recommandedField() {
         physics: NeverScrollableScrollPhysics(),
         separatorBuilder: (context, index) => const SizedBox(height: 21),
         itemCount: ListOfModels.recommanded.length,
-        itemBuilder: (context, index) =>
-            customRecommanded(model: ListOfModels.recommanded[index]),
+        itemBuilder: (context, index) => customRecommanded(
+          model: ListOfModels.recommanded[index],
+          context: context,
+        ),
       ),
     ],
   );

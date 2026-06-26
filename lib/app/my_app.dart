@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/font_manager.dart';
-import 'package:quran_app/core/route_manager.dart';
+import 'package:quran_app/core/other/font_manager.dart';
+import 'package:quran_app/core/other/route_manager.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

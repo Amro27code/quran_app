@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/app/widgets.dart';
 import 'package:quran_app/controller/onb_controller.dart';
-import 'package:quran_app/core/color_manager.dart';
-import 'package:quran_app/core/image_path_manager.dart';
 import 'package:quran_app/core/numbers/alignmet_manager.dart';
 import 'package:quran_app/core/numbers/font_size.dart';
-import 'package:quran_app/core/text_manager.dart';
+import 'package:quran_app/core/other/color_manager.dart';
+import 'package:quran_app/core/other/image_path_manager.dart';
+import 'package:quran_app/core/other/text_manager.dart';
 import 'package:quran_app/feature/onBoardingScreen/widgets/custom_button.dart';
 import 'package:quran_app/feature/onBoardingScreen/widgets/custom_image.dart';
 import 'package:quran_app/feature/onBoardingScreen/widgets/custom_title.dart';
@@ -23,14 +23,6 @@ class OnbScreen extends StatelessWidget {
           ColorManager.onbSecondary1,
           ColorManager.onbSecondary2,
         ],
-        beginAlignment: Alignment(
-          AlignmentXManager.beginBackgroundSplash,
-          AlignmentYManager.beginBackgroundSplash,
-        ),
-        endAlignment: Alignment(
-          AlignmentXManager.endBackgroundSplash,
-          AlignmentYManager.endBackgroundSplash,
-        ),
         child: SizedBox(
           width: .infinity,
           child: Column(

@@ -3,7 +3,7 @@ import 'package:quran_app/feature/home/widgets/recently_widget.dart';
 import 'package:quran_app/feature/home/widgets/title_for_field_widget.dart';
 import 'package:quran_app/model/constant/recently_played_list.dart';
 
-Column recentlyField() {
+Column recentlyField({required BuildContext context}) {
   return Column(
     crossAxisAlignment: .start,
     children: [
@@ -17,7 +17,7 @@ Column recentlyField() {
           separatorBuilder: (context, index) => const SizedBox(width: 17),
           itemCount: ListOfModels.recently.length,
           itemBuilder: (context, index) =>
-              recentlyWidget(model: ListOfModels.recently[index]),
+              recentlyWidget(model: ListOfModels.recently[index],context:context),
         ),
       ),
     ],

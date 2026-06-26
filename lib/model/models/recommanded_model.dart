@@ -1,11 +1,12 @@
-class RecommandedModel {
-  String imagePath, title, subtitle;
+class SongModel {
+  String imagePath, title, subtitle, soundPath;
   bool isFavorite;
 
-  RecommandedModel({
+  SongModel({
     required this.imagePath,
     required this.title,
     required this.subtitle,
-    required this.isFavorite
+    this.isFavorite = false,
+    this.soundPath = "",
   });
 }

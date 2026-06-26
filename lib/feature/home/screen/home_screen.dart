@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/color_manager.dart';
-import 'package:quran_app/core/image_path_manager.dart';
 import 'package:quran_app/feature/home/widgets/custom_recently_field.dart';
 import 'package:quran_app/feature/home/widgets/custom_text_field_home.dart';
-import 'package:quran_app/feature/home/widgets/recommanded_custom.dart';
 import 'package:quran_app/feature/home/widgets/recommanded_field.dart';
-import 'package:quran_app/feature/home/widgets/title_for_field_widget.dart';
-import 'package:quran_app/model/constant/recently_played_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,9 +16,9 @@ class HomeScreen extends StatelessWidget {
           children: [
             customTextFieldHome(),
             const SizedBox(height: 32),
-            recentlyField(),
+            recentlyField(context: context),
             const SizedBox(height: 31),
-            recommandedField(),
+            recommandedField(context: context),
           ],
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/app/widgets.dart';
 import 'package:quran_app/controller/bnb_controller.dart';
-import 'package:quran_app/core/color_manager.dart';
+import 'package:quran_app/core/other/color_manager.dart';
 
 class Bnb extends StatefulWidget {
   const Bnb({super.key});

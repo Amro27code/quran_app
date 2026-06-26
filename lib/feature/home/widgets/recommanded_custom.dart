@@ -1,9 +1,16 @@
+import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/color_manager.dart';
+import 'package:quran_app/controller/home_controller.dart';
+import 'package:quran_app/core/other/color_manager.dart';
 import 'package:quran_app/model/models/recommanded_model.dart';
 
-ListTile customRecommanded({required RecommandedModel model}) {
+ListTile customRecommanded({
+  required SongModel model,
+  required BuildContext context,
+}) {
   return ListTile(
+    onTap: () => HomeController.navigator(context: context),
     contentPadding: const EdgeInsets.all(0),
     leading: SizedBox(
       width: 60,
