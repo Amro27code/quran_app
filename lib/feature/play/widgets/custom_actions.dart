@@ -5,7 +5,7 @@ import 'package:quran_app/feature/play/widgets/custom_action.dart';
 
 Column customActions({
   required double value,
-  required ValueChanged<double> onChanged,
+  required ValueChanged<double> onChanged,required int index
 }) {
   return Column(
     children: [

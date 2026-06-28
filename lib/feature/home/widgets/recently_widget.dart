@@ -8,7 +8,7 @@ GestureDetector recentlyWidget({
   required BuildContext context,
 }) {
   return GestureDetector(
-    onTap: () => HomeController.navigator(context: context),
+    // onTap: () => HomeController.navigator(context: context),
     child: Column(
       crossAxisAlignment: .end,
       children: [

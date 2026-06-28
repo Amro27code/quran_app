@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/core/other/color_manager.dart';
 import 'package:quran_app/core/other/image_path_manager.dart';
 
-Container customNextSound() {
+Container customNextSound({required int index}) {
   return Container(
     decoration: BoxDecoration(
       color: ColorManager.onbSecondary2.withAlpha(127),

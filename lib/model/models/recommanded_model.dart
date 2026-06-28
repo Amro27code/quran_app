@@ -7,6 +7,6 @@ class SongModel {
     required this.title,
     required this.subtitle,
     this.isFavorite = false,
-    this.soundPath = "",
+    required this.soundPath,
   });
 }

@@ -4,6 +4,7 @@ import 'package:quran_app/feature/home/screen/home_screen.dart';
 import 'package:quran_app/feature/onBoardingScreen/screens/onb_screen.dart';
 import 'package:quran_app/feature/play/screens/play_screen.dart';
 import 'package:quran_app/feature/splashScreen/screens/splash_screen.dart';
+import 'package:quran_app/model/models/recommanded_model.dart';
 
 class RouteManager {
   static Map<String, WidgetBuilder> routes = {
@@ -11,7 +12,14 @@ class RouteManager {
     RouteNames.onBoardingScreen: (context) => const OnbScreen(),
     RouteNames.homeScreen: (context) => const HomeScreen(),
     RouteNames.bnb: (context) => const Bnb(),
-    RouteNames.play: (context) => const PlayScreen(),
+    RouteNames.play: (context) => const PlayScreen(
+      // songModel: SongModel(
+      //   soundPath: "",
+      //   title: "",
+      //   imagePath: "",
+      //   subtitle: "asd",
+      // ),
+    ),
   };
 }
 

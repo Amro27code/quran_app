@@ -1,52 +1,80 @@
 import 'package:quran_app/core/other/image_path_manager.dart';
+import 'package:quran_app/core/other/sound_path_manage.dart';
 import 'package:quran_app/model/models/recommanded_model.dart';
 
 class ListOfModels {
-  static List<SongModel> recently = [
+  // static List<SongModel> recently = [
+  //   SongModel(
+  //     imagePath: ImagePathManager.ikhlas,
+  //     title: "سورة الاخلاص",
+  //     subtitle: "بصوت الشيخ ياسر الدوسري",
+  //     soundPath: SoundPathManage.ikhlasYaser,
+  //   ),
+  //   SongModel(
+  //     imagePath: ImagePathManager.fateha,
+  //     title: "سورة الفاتحة",
+  //     subtitle: "بصوت الشيخ محمد اللحيدان",
+  //     soundPath: SoundPathManage.fatehaMoha,
+  //   ),
+  //
+  //   SongModel(
+  //     imagePath: ImagePathManager.wakeaa,
+  //     title: "سورة الواقعة",
+  //     subtitle: "بصوت الشيخ ياسر الدوسري",
+  //     soundPath: SoundPathManage.waqeaYaser,
+  //   ),
+  // ];
+  static List<SongModel> recommanded = [
     SongModel(
       imagePath: ImagePathManager.ikhlas,
       title: "سورة الاخلاص",
       subtitle: "بصوت الشيخ ياسر الدوسري",
+      soundPath: SoundPathManage.ikhlasYaser,
     ),
     SongModel(
       imagePath: ImagePathManager.fateha,
       title: "سورة الفاتحة",
       subtitle: "بصوت الشيخ محمد اللحيدان",
+      soundPath: SoundPathManage.fatehaMoha,
     ),
 
     SongModel(
       imagePath: ImagePathManager.wakeaa,
       title: "سورة الواقعة",
       subtitle: "بصوت الشيخ ياسر الدوسري",
+      soundPath: SoundPathManage.waqeaYaser,
     ),
-  ];
-  static List<SongModel> recommanded = [
     SongModel(
       imagePath: ImagePathManager.yaser,
       title: "ياسر الدوسري",
       subtitle: "قران",
+      soundPath: SoundPathManage.yaser,
     ),
     SongModel(
       imagePath: ImagePathManager.mohammed,
       title: "محمد اللحيدان",
       subtitle: "قران",
       isFavorite: true,
+      soundPath: SoundPathManage.moha,
     ),
     SongModel(
       imagePath: ImagePathManager.maher,
       title: "ماهر المعيقلي",
-      subtitle: "قران",
+      subtitle: "سورة الفاتحة",
+      soundPath: SoundPathManage.fatehaMaher,
     ),
     SongModel(
       imagePath: ImagePathManager.abdallah,
       title: "عبد الله الجهني",
       subtitle: "قران",
+      soundPath: SoundPathManage.jehnee,
     ),
     SongModel(
       imagePath: ImagePathManager.yaser,
       title: "ياسر الدوسري",
       subtitle: "قران",
       isFavorite: true,
+      soundPath: SoundPathManage.yaser2,
     ),
   ];
 }

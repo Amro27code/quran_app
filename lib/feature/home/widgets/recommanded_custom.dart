@@ -10,7 +10,7 @@ ListTile customRecommanded({
   required BuildContext context,
 }) {
   return ListTile(
-    onTap: () => HomeController.navigator(context: context),
+    // onTap: () => HomeController.navigator(context: context),
     contentPadding: const EdgeInsets.all(0),
     leading: SizedBox(
       width: 60,

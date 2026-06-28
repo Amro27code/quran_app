@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/core/other/image_path_manager.dart';
 
 class PlayController {
-
+  static VoidCallback back({required BuildContext context}) =>
+      ()=> Navigator.pop(context);
   static const List<String> actionsPlay = [
     ImagePathManager.shuffle,
     ImagePathManager.back,
@@ -17,9 +18,8 @@ class PlayController {
     EditsPlayModel(icon: Icons.cloud_download_outlined, text: "Download"),
     EditsPlayModel(icon: Icons.more_vert, text: "More"),
   ];
-
-
 }
+
 class EditsPlayModel {
   IconData icon;
   String text;
