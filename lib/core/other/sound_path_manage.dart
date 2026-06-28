@@ -1,4 +1,5 @@
 class SoundPathManage {
+  static const String _common="assets/sounds";
   static const String ikhlasYaser="assets/sounds/الاخلاص-ياسر.weba";
   static const String jehnee="assets/sounds/الجهني.m4a";
   static const String fatehaMaher="assets/sounds/الفاتحة-ماهر.weba";
