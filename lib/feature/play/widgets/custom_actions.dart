@@ -8,7 +8,6 @@ Column customActions({
   required ValueChanged<double> onChanged,
 }) {
   return Column(
-    spacing: 29,
     children: [
       Row(
         mainAxisAlignment: .spaceEvenly,
@@ -20,10 +19,13 @@ Column customActions({
           minSize(imagePath: ImagePathManager.repeat),
         ],
       ),
+      const SizedBox(height: 29,),
       SliderTheme(
         data: SliderThemeData(
           // thumbShape:SliderComponentShape.noThumb
           thumbShape: RoundedSliderThumbShape(),
+          padding: const EdgeInsets.all(0),
+          overlayShape: SliderComponentShape.noOverlay,
         ),
         child: Slider(
           value: value,
@@ -33,6 +35,27 @@ Column customActions({
           inactiveColor: Color(0xff2F5D9A),
           onChanged: onChanged,
         ),
+      ),
+      Row(
+        mainAxisAlignment: .spaceBetween,
+        children: [
+          Text(
+            "2:05",
+            style: TextStyle(
+              color: ColorManager.onbSecondary2,
+              fontSize: 12,
+              fontWeight: .w500,
+            ),
+          ),
+          Text(
+            "3:45",
+            style: TextStyle(
+              color: ColorManager.onbSecondary2,
+              fontSize: 12,
+              fontWeight: .w500,
+            ),
+          ),
+        ],
       ),
     ],
   );
