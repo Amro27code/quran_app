@@ -6,9 +6,9 @@ import 'package:quran_app/model/models/recommanded_model.dart';
 
 class CustomDetailSound extends StatelessWidget {
   const CustomDetailSound({
-    super.key, required this.index,//required this.songModel,
+    super.key, required this.songModel,//required this.songModel,
   });
-  final int index;
+  final SongModel songModel;
   // final SongModel songModel;
   @override
   Widget build(BuildContext context) {
@@ -19,17 +19,17 @@ class CustomDetailSound extends StatelessWidget {
           child: Image(
             width: 247,
             height: 261,
-            image: AssetImage(ListOfModels.recommanded[index].imagePath),
+            image: AssetImage(songModel.imagePath),
             fit: .cover,
           ),
         ),
         const SizedBox(height: 23),
         Text(
-          ListOfModels.recommanded[index].title,
+          songModel.title,
           style: TextStyle(fontSize: 18, color: ColorManager.whiteColor),
         ),
         const SizedBox(height: 4),
-        Text(ListOfModels.recommanded[index].subtitle,
+        Text(songModel.subtitle,
           style: TextStyle(fontSize: 12, color: ColorManager.onbSecondary2),
         ),
       ],

@@ -19,10 +19,6 @@ class PlayScreen extends StatefulWidget {
 
 class _PlayScreenState extends State<PlayScreen> {
   late int index;
-
-  // late AudioCache _audioCache;
-  // late AudioPlayer _audioPlayer;
-  // late Uri _uri;
   late PlaySoundController _playSoundController;
 
   @override
@@ -34,19 +30,23 @@ class _PlayScreenState extends State<PlayScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     index = ModalRoute.of(context)!.settings.arguments as int;
-    _playSoundController = PlaySoundController(index: index);
+    _playSoundController = PlaySoundController(index);
     _playSoundController.play();
   }
 
-  @override
-  void dispose() {
-    _playSoundController.disposeSound();
-    super.dispose();
-  }
+  late bool isPlay = _playSoundController.isPlay();
+
+  // @override
+  // void dispose() {
+  // TODO:عملنا سينجيلتون لانه بزبطش يفتح اكثر من صوت بنفس الوقت
+  // TODO:والdispose  شلناه ليش لانه لازم يضل شغال حتى بالخلفية او الشاشة الرئيسية كمان
+  // TODO:واذا عملت ال  dis  لما تفتح اغنية وترجع تفتحها كمان مرة رح يضرب ايرور لانه انت قتلته
+  //   _playSoundController.disposeSound();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
-    // int index = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: customAppBar(
@@ -59,13 +59,24 @@ class _PlayScreenState extends State<PlayScreen> {
             padding: const EdgeInsets.all(26.0),
             child: Column(
               children: [
-                // Spacer(),
+                Spacer(),
                 // const SizedBox(height: 124),
-                CustomDetailSound(index: index),
-                // const SizedBox(height: 28),
-                customActions(value: 50, onChanged: (value) {}, index: index),
-                // const SizedBox(height: 14),
+                CustomDetailSound(songModel: ListOfModels.recommanded[index]),
+                const SizedBox(height: 28),
+                customActions(
+                  value: 50,
+                  onChanged: (value) {},
+                  onTap: _playSoundController.stop,
+                  //     () async {
+                  //  await _playSoundController.stop;
+                  //    setState((){});
+                  // }
+                  // isPlay: _playSoundController.isPlay(),
+                  songModel: ListOfModels.recommanded[index],
+                ),
+                const SizedBox(height: 14),
                 customToolPlay(),
+                Spacer(),
                 // const SizedBox(height: 32),
                 customNextSound(index: index),
               ],

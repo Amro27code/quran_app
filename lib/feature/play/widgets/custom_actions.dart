@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/core/other/color_manager.dart';
 import 'package:quran_app/core/other/image_path_manager.dart';
 import 'package:quran_app/feature/play/widgets/custom_action.dart';
+import 'package:quran_app/model/models/recommanded_model.dart';
 
 Column customActions({
+  required Function() onTap,
   required double value,
-  required ValueChanged<double> onChanged,required int index
+  // required bool isPlay,
+  required ValueChanged<double> onChanged,
+  required SongModel songModel,
 }) {
   return Column(
     children: [
@@ -14,12 +18,16 @@ Column customActions({
         children: [
           minSize(imagePath: ImagePathManager.shuffle),
           midSize(imagePath: ImagePathManager.back),
-          maxSize(imagePath: ImagePathManager.stop),
+          maxSize(
+            imagePath: ImagePathManager.stop,
+            onTap: onTap,
+            // isPlay: isPlay,
+          ),
           midSize(imagePath: ImagePathManager.next),
           minSize(imagePath: ImagePathManager.repeat),
         ],
       ),
-      const SizedBox(height: 29,),
+      const SizedBox(height: 29),
       SliderTheme(
         data: SliderThemeData(
           // thumbShape:SliderComponentShape.noThumb

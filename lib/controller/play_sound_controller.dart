@@ -7,12 +7,16 @@ class PlaySoundController {
   late AudioPlayer audioPlayer;
   late Uri uri;
 
-  PlaySoundController({
-    required this.index,
-  }) {
+  PlaySoundController._internal(this.index) {
     audioCache = AudioCache(prefix: "");
     audioPlayer = AudioPlayer();
+  }
 
+  static PlaySoundController? _instance;
+
+  factory PlaySoundController(int index) {
+    _instance ??= PlaySoundController._internal(index);
+    return _instance!;
   }
 
   // static
@@ -21,8 +25,17 @@ class PlaySoundController {
     await audioPlayer.play(UrlSource(uri.toString()));
   }
 
+  bool isPlay() => audioPlayer.state == PlayerState.playing;
 
-   void disposeSound() {
-  audioPlayer.dispose();
+  void stop() async {//
+    if (audioPlayer.state == PlayerState.playing) {
+      await audioPlayer.pause();
+    } else if (audioPlayer.state == PlayerState.paused) {
+      await audioPlayer.resume();
+    }
   }
+
+  // void disposeSound() {
+  //   audioPlayer.dispose();
+  // }
 }
