@@ -14,6 +14,7 @@ class ImagePathManager {
   static const String next = "$_rootPath/play/next.png";
   static const String repeat = "$_rootPath/play/repeat.png";
   static const String stop = "$_rootPath/play/stop.png";
+  static const String run = "$_rootPath/play/play.png";
   static const String shuffle = "$_rootPath/play/icon _shuffle_.png";
 
 }

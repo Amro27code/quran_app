@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/other/color_manager.dart';
-import 'package:quran_app/core/other/image_path_manager.dart';
-import 'package:quran_app/model/constant/recently_played_list.dart';
 import 'package:quran_app/model/models/recommanded_model.dart';
 
 class CustomDetailSound extends StatelessWidget {
@@ -9,7 +7,6 @@ class CustomDetailSound extends StatelessWidget {
     super.key, required this.songModel,//required this.songModel,
   });
   final SongModel songModel;
-  // final SongModel songModel;
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/other/color_manager.dart';
 import 'package:quran_app/core/other/image_path_manager.dart';
@@ -7,10 +9,14 @@ import 'package:quran_app/model/models/recommanded_model.dart';
 Column customActions({
   required Function() onTap,
   required double value,
-  // required bool isPlay,
+  required Stream<String> currentDurationStream,
+  required String time,
   required ValueChanged<double> onChanged,
   required SongModel songModel,
+  required Stream<bool> controller,
 }) {
+  // String sec= (audioTime.inSeconds%60)<10?
+  //  "0${audioTime.inSeconds%60}":"${audioTime.inSeconds%60}";
   return Column(
     children: [
       Row(
@@ -18,11 +24,7 @@ Column customActions({
         children: [
           minSize(imagePath: ImagePathManager.shuffle),
           midSize(imagePath: ImagePathManager.back),
-          maxSize(
-            imagePath: ImagePathManager.stop,
-            onTap: onTap,
-            // isPlay: isPlay,
-          ),
+          maxSize(onTap: onTap, controller: controller),
           midSize(imagePath: ImagePathManager.next),
           minSize(imagePath: ImagePathManager.repeat),
         ],
@@ -47,16 +49,21 @@ Column customActions({
       Row(
         mainAxisAlignment: .spaceBetween,
         children: [
-          Text(
-            "2:05",
-            style: TextStyle(
-              color: ColorManager.onbSecondary2,
-              fontSize: 12,
-              fontWeight: .w500,
-            ),
+          StreamBuilder<String>(
+            stream:currentDurationStream,
+            builder: (context, snapshot) =>
+                Text(
+                  snapshot.data??"",
+                  style: TextStyle(
+                    color: ColorManager.onbSecondary2,
+                    fontSize: 12,
+                    fontWeight: .w500,
+                  ),
+                ),
           ),
           Text(
-            "3:45",
+            // "${audioTime.inMinutes}:$sec",
+            time,
             style: TextStyle(
               color: ColorManager.onbSecondary2,
               fontSize: 12,
@@ -76,20 +83,19 @@ class RoundedSliderThumbShape extends SliderComponentShape {
   }
 
   @override
-  void paint(
-    PaintingContext context,
-    Offset center, {
-    required Animation<double> activationAnimation,
-    required Animation<double> enableAnimation,
-    required bool isDiscrete,
-    required TextPainter labelPainter,
-    required RenderBox parentBox,
-    required SliderThemeData sliderTheme,
-    required TextDirection textDirection,
-    required double value,
-    required double textScaleFactor,
-    required Size sizeWithOverflow,
-  }) {
+  void paint(PaintingContext context,
+      Offset center, {
+        required Animation<double> activationAnimation,
+        required Animation<double> enableAnimation,
+        required bool isDiscrete,
+        required TextPainter labelPainter,
+        required RenderBox parentBox,
+        required SliderThemeData sliderTheme,
+        required TextDirection textDirection,
+        required double value,
+        required double textScaleFactor,
+        required Size sizeWithOverflow,
+      }) {
     final Canvas canvas = context.canvas;
     final Paint paint = Paint()
       ..color = ColorManager.onbSecondary2

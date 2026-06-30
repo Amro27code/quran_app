@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:quran_app/app/widgets.dart';
 import 'package:quran_app/controller/play_controller.dart';
@@ -31,10 +30,8 @@ class _PlayScreenState extends State<PlayScreen> {
     super.didChangeDependencies();
     index = ModalRoute.of(context)!.settings.arguments as int;
     _playSoundController = PlaySoundController(index);
-    _playSoundController.play();
+    // _playSoundController.play();
   }
-
-  late bool isPlay = _playSoundController.isPlay();
 
   // @override
   // void dispose() {
@@ -42,6 +39,7 @@ class _PlayScreenState extends State<PlayScreen> {
   // TODO:والdispose  شلناه ليش لانه لازم يضل شغال حتى بالخلفية او الشاشة الرئيسية كمان
   // TODO:واذا عملت ال  dis  لما تفتح اغنية وترجع تفتحها كمان مرة رح يضرب ايرور لانه انت قتلته
   //   _playSoundController.disposeSound();
+  //
   //   super.dispose();
   // }
 
@@ -55,32 +53,43 @@ class _PlayScreenState extends State<PlayScreen> {
       ),
       body: backgroundGradiant(
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(26.0),
-            child: Column(
-              children: [
-                Spacer(),
-                // const SizedBox(height: 124),
-                CustomDetailSound(songModel: ListOfModels.recommanded[index]),
-                const SizedBox(height: 28),
-                customActions(
-                  value: 50,
-                  onChanged: (value) {},
-                  onTap: _playSoundController.stop,
-                  //     () async {
-                  //  await _playSoundController.stop;
-                  //    setState((){});
-                  // }
-                  // isPlay: _playSoundController.isPlay(),
-                  songModel: ListOfModels.recommanded[index],
-                ),
-                const SizedBox(height: 14),
-                customToolPlay(),
-                Spacer(),
-                // const SizedBox(height: 32),
-                customNextSound(index: index),
-              ],
-            ),
+          child: FutureBuilder(
+            future: _playSoundController.play(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return Padding(
+                  padding: const EdgeInsets.all(26.0),
+                  child: Column(
+                    children: [
+                      Spacer(),
+                      // const SizedBox(height: 124),
+                      CustomDetailSound(
+                        songModel: ListOfModels.recommanded[index],
+                      ),
+                      const SizedBox(height: 28),
+                      customActions(
+                        value: 50,
+                        onChanged: (value) {},
+                        onTap: _playSoundController.stop,
+                        controller: _playSoundController.output,
+                        songModel: ListOfModels.recommanded[index],
+                        currentDurationStream: _playSoundController.outputC,
+                        time: _playSoundController.getDurationTime(_playSoundController.audioTime),
+                      ),
+                      const SizedBox(height: 14),
+                      customToolPlay(),
+                      Spacer(),
+                      // const SizedBox(height: 32),
+                      customNextSound(index: index),
+                    ],
+                  ),
+                );
+              } else if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              } else {
+                return CircularProgressIndicator();
+              }
+            },
           ),
         ),
       ),

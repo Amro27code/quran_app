@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/other/color_manager.dart';
+import 'package:quran_app/core/other/image_path_manager.dart';
 
 IconButton minSize({
   required String imagePath,
@@ -33,21 +36,24 @@ GestureDetector midSize({
 }
 
 GestureDetector maxSize({
-  required String imagePath,
   required Function() onTap,
-  // required bool isPlay,
+  required Stream<bool> controller,
 }) {
-  // print(isPlay);
   return GestureDetector(
-    onTap: onTap, //() => onTap(),
+    onTap: onTap,
     child: CircleAvatar(
       backgroundColor: ColorManager.onbSecondary2,
       radius: 30.5,
-      child:
-          // isPlay
-          //     ?
-          Image(image: AssetImage(imagePath)),
-      // : Icon(Icons.stop, color: ColorManager.whiteColor),
+      child: StreamBuilder<bool>(
+        stream: controller,
+        builder: (context, snapshot) => Image(
+          image: AssetImage(
+            (snapshot.data!) ? ImagePathManager.stop : ImagePathManager.run,
+          ),
+          width: 30,height: 30,
+        ),
+        initialData: true,
+      ),
     ),
   );
 }
